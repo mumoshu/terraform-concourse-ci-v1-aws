@@ -107,7 +107,7 @@ func InteractivelyCreateConfig() *concourse.Config {
 	dbInstanceClass := AskForRequiredInput("DB Instance Class", AskOptions{Default: "db.t2.micro"})
 	dbEngineVersion := AskForRequiredInput("DB Engine(Postgres) Version", AskOptions{Default: "9.4.7"})
 
-  webInstanceType := AskForRequiredInput("Concourse Web Instance Type", AskOptions{Default: "t2.micro"})
+	webInstanceType := AskForRequiredInput("Concourse Web Instance Type", AskOptions{Default: "t2.micro"})
 	workerInstanceType := AskForRequiredInput("Concourse Worker Instance Type", AskOptions{Default: "t2.micro"})
 
 	asgMin := AskForRequiredInput("Min numbers of servers in ASG(Web, Worker)", AskOptions{Default: "0"})
