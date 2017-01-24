@@ -105,6 +105,7 @@ func InteractivelyCreateConfig() *concourse.Config {
 	accessibleCIDRS := AskForRequiredInput("AccessibleCIDRS(commma separated)", AskOptions{Default: fmt.Sprintf("%s/32", ObtainExternalIp())})
 
 	dbInstanceClass := AskForRequiredInput("DB Instance Class", AskOptions{Default: "db.t2.micro"})
+	dbEngineVersion := AskForRequiredInput("DB Engine(Postgres) Version", AskOptions{Default: "9.4.7"})
 	instanceType := AskForRequiredInput("Concourse Instance Type", AskOptions{Default: "t2.micro"})
 
 	asgMin := AskForRequiredInput("Min numbers of servers in ASG(Web, Worker)", AskOptions{Default: "0"})
@@ -184,6 +185,7 @@ func InteractivelyCreateConfig() *concourse.Config {
 		SubnetIds:                subnetIds,
 		AvailabilityZones:        availabilityZones,
 		DBInstanceClass:          dbInstanceClass,
+		DBEngineVersion:          dbEngineVersion,
 		InstanceType:             instanceType,
 		AMI:                      amiId,
 		AsgMin:                   asgMin,
@@ -268,6 +270,7 @@ func TerraformRun(subcommand string, c *concourse.Config) {
 		"-var", fmt.Sprintf("subnet_id=%s", strings.Join(c.SubnetIds, ",")),
 		"-var", fmt.Sprintf("vpc_id=%s", c.VpcId),
 		"-var", fmt.Sprintf("db_instance_class=%s", c.DBInstanceClass),
+		"-var", fmt.Sprintf("db_engine_version=%s", c.DBEngineVersion),
 		"-var", fmt.Sprintf("instance_type=%s", c.InstanceType),
 		"-var", "db_username=concourse",
 		"-var", "db_password=concourse",

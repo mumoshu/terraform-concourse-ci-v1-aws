@@ -1,6 +1,6 @@
 variable "prefix" {
   description = "Prefix for every resource created by this template"
-  default = "concourse-"  
+  default = "concourse-"
 }
 
 variable "aws_region" {
@@ -99,6 +99,10 @@ variable "db_password" {
 
 variable "db_instance_class" {
   description = "t2.micro"
+}
+
+variable "db_engine_version" {
+  description = "engine version of rds engine ('postgres')"
 }
 
 variable "tsa_host_key" {
