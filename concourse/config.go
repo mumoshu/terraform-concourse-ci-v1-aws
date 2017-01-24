@@ -17,7 +17,10 @@ type Config struct {
 	AccessibleCIDRS          string   `yaml:"accessible_cidrs"`
 	DBInstanceClass          string   `yaml:"db_instance_class"`
 	DBEngineVersion          string   `yaml:"db_engine_version"`
+	// Deprecated: Use WebInstanceType and WorkerInstanceType instead.
 	InstanceType             string   `yaml:"instance_type"`
+	WebInstanceType          string   `yaml:"web_instance_type"`
+	WorkerInstanceType       string   `yaml:"worker_instance_type"`
 	WorkerInstanceProfile    string   `yaml:"worker_instance_profile"`
 	AMI                      string   `yaml:"ami_id"`
 	AsgMin                   string   `yaml:"asg_min"`
